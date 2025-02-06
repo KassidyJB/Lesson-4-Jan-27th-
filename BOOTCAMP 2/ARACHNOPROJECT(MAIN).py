@@ -1,7 +1,8 @@
 #access libraries and py files 
 import spiderDraw as sd
 import functions as md
-
+import os
+import time
 #Initialize variables and setup 
 #Need to keep track of correct letters, incorrect letters and tries
 
@@ -25,7 +26,15 @@ word = md.generate_word()
 
 #Game Loop
 while game: 
+  tries = md.check_word(correct, incorrect, word, tries)
+  
   md.print_spider(tries,spiderList)
+  
+  time.sleep(1)
+  
+
+  print(f"Incorrect guesses so far: {incorrect}")
+  
 
   #This is where you'll call all of your functions. Just need to decide the proper order.
 
