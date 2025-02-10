@@ -28,11 +28,13 @@ word = md.generate_word()
 while game: 
   tries = md.check_word(correct, incorrect, word, tries)
   
-  md.print_spider(tries,spiderList)
+  #md.print_spider(tries,spiderList)
   
   time.sleep(1)
-  
-
+  os.system("clear")
+  progress = md.print_word(word, correct)
+  print(f"Word = {progress}")
+  md.print_spider(tries,spiderList)
   print(f"Incorrect guesses so far: {incorrect}")
   
 

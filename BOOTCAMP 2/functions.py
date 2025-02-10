@@ -35,8 +35,14 @@ def check_word(correct, incorrect, word, tries):
 
 # Returns the word to the console containing "_" for any letter not guessed by the user.
 #Takes in the correct word and the list of correct guesses as parameters
-def print_word():
-  pass
+def print_word(word, correct):
+  progress = ''
+  for let in word:
+    if let in correct:
+      progress += let
+    else:
+      progress += "_"
+  return progress
 
 
 
