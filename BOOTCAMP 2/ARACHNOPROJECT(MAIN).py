@@ -50,3 +50,49 @@ while game:
 
 
   #You will also need to specify your win and lose conditions in here
+
+
+##WIN/LOSE
+
+#IF dash NOT IN progress
+
+# PRINT win message
+
+# END game 
+
+ 
+
+#ELIF tries greater than 5
+
+# PRINT lose message
+
+# END game
+
+
+if '_' not in progress:
+    print('Congrats, you won!')
+    #ASK the player if they want to play again
+    #IF yes
+      #Clear system
+      #Clear correct letters list
+      #Clear incorrect letters list 
+      #Reset tries to 0
+      #Generate new word
+
+    #ELSE:
+      #Print goodbye message
+      #End game
+      
+  elif tries > 5:
+    print('The spider has devoured you!')
+    pa = input(f'Would you like to place again? \n>').lower()
+    if pa == 'yes':
+      os.system('clear')
+      correct.clear()#Clear correct letters list
+      incorrect.clear()#Clear incorrect letters list 
+      #Reset tries to 0
+      #Generate new word
+
+    #ELSE:
+      print("Aw shucks, have a great day!")
+      game = False
