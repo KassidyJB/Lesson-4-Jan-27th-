@@ -6,6 +6,13 @@ import time
 #Initialize variables and setup 
 #Need to keep track of correct letters, incorrect letters and tries
 
+name = input("What is your name?")
+print(f''' _______________
+          | Welcome       |
+          |       to      |
+          | ArachnoPhonics| 
+          |     {name}!!! |
+          |_______________| ''')
 correct = []  #List of correct letters guessed
 incorrect = []  #List of incorrect letters guessed
 tries = 0   #Number of incorrect guesses
@@ -26,6 +33,7 @@ word = md.generate_word()
 
 #Game Loop
 while game: 
+  md.introduction()
   tries = md.check_word(correct, incorrect, word, tries)
   
   #md.print_spider(tries,spiderList)
