@@ -4,7 +4,11 @@ import random
 # Prompts user for letter guess. Checks through the secret word to see if it contains the letter guessed by the user. Returns the number of wrong guesses
 #Takes in the correct letter list, incorrect letter list, secret word and the number of tries as parameters.
 def check_word(correct, incorrect, word, tries):
-  guess = input("Guess a letter: >")
+  guess = input("Guess a letter: >").lower()
+  if len(guess)!=1 or not guess.isalpha():
+    print('''You've entered an invalid guess or more than
+          one letter''')
+    check_word(correct,incorrect, word, tries)
   if guess in correct or guess in incorrect:
     print("You've already guessed this letter")
   elif guess in word:
@@ -68,15 +72,15 @@ def generate_word():
 #Put the introduction code/input player name into here 
 def introduction():
   name = input(f"\nWhat is your name?\n")
-  print(f''' _______________
+  print(f'''
+            _____________
           | Welcome       |
           |       to      |
           | ArachnoPhonics| 
-          |     {name}!!! |
+          |    {name}!!! |
           |_______________| ''')
-  print(f"\nWIN: Guess all letters of word before spider is 
-        completely drawn\n")
-  print(f"\nLOSE: Overstepping your tries or the spider is 
-        completely drawn before the word is guessed\n")
+  print(f'''\nWIN: Guess all letters of word before spider is drawn\n''')
+  print(f'''\nLOSE: Override your tries or the spider is
+        drawn before the word is guessed''')
 introduction()
 

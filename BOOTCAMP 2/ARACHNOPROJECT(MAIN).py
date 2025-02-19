@@ -6,13 +6,8 @@ import time
 #Initialize variables and setup 
 #Need to keep track of correct letters, incorrect letters and tries
 
-name = input("What is your name?")
-print(f''' _______________
-          | Welcome       |
-          |       to      |
-          | ArachnoPhonics| 
-          |     {name}!!! |
-          |_______________| ''')
+md.introduction()
+
 correct = []  #List of correct letters guessed
 incorrect = []  #List of incorrect letters guessed
 tries = 0   #Number of incorrect guesses
@@ -30,12 +25,10 @@ spiderList = [sd.spider_0, sd.spider_1, sd.spider_2, sd.spider_3, sd.spider_4, s
 word = md.generate_word()  
 
 
-
 #Game Loop
 while game: 
-  md.introduction()
   tries = md.check_word(correct, incorrect, word, tries)
-  
+
   #md.print_spider(tries,spiderList)
   
   time.sleep(1)
@@ -50,49 +43,27 @@ while game:
 
 
   #You will also need to specify your win and lose conditions in here
-
-
-##WIN/LOSE
-
-#IF dash NOT IN progress
-
-# PRINT win message
-
-# END game 
-
- 
-
-#ELIF tries greater than 5
-
-# PRINT lose message
-
-# END game
-
-
-if '_' not in progress:
+  if '_' not in progress:
     print('Congrats, you won!')
-    #ASK the player if they want to play again
-    #IF yes
-      #Clear system
-      #Clear correct letters list
-      #Clear incorrect letters list 
-      #Reset tries to 0
-      #Generate new word
-
-    #ELSE:
-      #Print goodbye message
-      #End game
-      
+    reset = input('Do you want to play again? y/n: ')
+    if reset =='y' or reset == 'yes':
+      os.system('clear')
+      correct.clear()
+      incorrect.clear()
+      tries = 0
+      word = md.generate_word() 
+    else:
+      print('Bye!')
+      game = False
   elif tries > 5:
     print('The spider has devoured you!')
-    pa = input(f'Would you like to place again? \n>').lower()
-    if pa == 'yes':
+    reset = input('Do you want to play again? y/n: ')
+    if reset =='y' or reset == 'yes':
       os.system('clear')
-      correct.clear()#Clear correct letters list
-      incorrect.clear()#Clear incorrect letters list 
-      #Reset tries to 0
-      #Generate new word
-
-    #ELSE:
-      print("Aw shucks, have a great day!")
+      correct.clear()
+      incorrect.clear()
+      tries = 0
+      word = md.generate_word() 
+    else:
+      print('Bye!')
       game = False
