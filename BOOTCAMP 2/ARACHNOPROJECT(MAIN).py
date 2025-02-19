@@ -6,7 +6,7 @@ import time
 #Initialize variables and setup 
 #Need to keep track of correct letters, incorrect letters and tries
 
-md.introduction()
+
 
 correct = []  #List of correct letters guessed
 incorrect = []  #List of incorrect letters guessed
@@ -18,7 +18,7 @@ spiderList = [sd.spider_0, sd.spider_1, sd.spider_2, sd.spider_3, sd.spider_4, s
 #Makes calling functions easier. Just index it from the list.
 
 #Print intro statements (welcome to game, etc)
-
+md.introduction()
 
 
 #generate a random word from word list
@@ -27,6 +27,7 @@ word = md.generate_word()
 
 #Game Loop
 while game: 
+  progress = ''
   tries = md.check_word(correct, incorrect, word, tries)
 
   #md.print_spider(tries,spiderList)
